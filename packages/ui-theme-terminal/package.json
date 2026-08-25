@@ -1,7 +1,7 @@
 {
   "name": "@danielng23/dsh-xry-client-ui-theme-terminal",
   "description": "XRY/B1 cyan-on-near-black CRT theme for the web UI: registers the analyzed palette and an Appearance row to pick it",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "publishConfig": {
     "access": "public"
   },

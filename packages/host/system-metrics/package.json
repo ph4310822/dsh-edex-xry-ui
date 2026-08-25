@@ -1,7 +1,7 @@
 {
   "name": "@danielng23/dsh-xry-host-system-metrics",
   "description": "System-monitor Host Remote: node:os resource snapshots served to the terminal-shell browser surface",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "publishConfig": {
     "access": "public"
   },
