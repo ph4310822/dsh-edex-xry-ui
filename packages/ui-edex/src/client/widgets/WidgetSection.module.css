@@ -1,0 +1,63 @@
+/* Shared widget section chrome: the card with an optional heading, plus
+   layout variants used by the shell bars' widget registries. Per the XRY/B1
+   analysis, each widget module is an independent outlined box: 1px thin cyan
+   border (#106060), square corners (0px), subtle cyan glow, panel-tone fill,
+   and a small gap so the modules float against the near-black canvas. */
+
+.section {
+  position: relative;
+  padding: 10px 12px;
+  margin: 2px;
+  border: 1px solid var(--edex-border);
+  border-radius: 0;
+  background: var(--edex-panel-2);
+  box-shadow: 0 0 4px color-mix(in srgb, var(--edex-green) 18%, transparent);
+}
+
+.title {
+  color: var(--edex-green);
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+/* Flex-fill the bar's leftover height (screen − other sections). */
+.fill {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* Tight padding for full-bleed widgets (the globe). */
+.compact {
+  padding: 2px 4px;
+}
+
+/* Zero the chrome padding so the widget body owns all inner spacing
+   (full-bleed bottom widgets like the file list and terminal). */
+.bleed {
+  padding: 0;
+}
+
+/* The center region hosts the ORIGINAL UI — the section must stay
+   transparent (no card chrome, no margin, no border, no background) so the
+   app surface shows through the scanline texture. */
+.section[data-widget='center'] {
+  margin: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+   /* Keep the section heading inset from the card edges when the section body
+   is compact (the globe) or bleed (bottom widgets). The title padding
+   compensates the section's own padding so every title text lands at the
+   same inset as the default sections (10px top, 12px sides):
+   compact section = 2px/4px → title 8px/8px; bleed section = 0 → 10px/12px. */
+.compact .title {
+  padding: 8px 8px 0;
+}
+
+.bleed .title {
+  padding: 10px 12px 0;
+}

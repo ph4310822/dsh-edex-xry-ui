@@ -1,0 +1,28 @@
+{
+  "name": "@danielng23/dsh-edex-xry-ui",
+  "description": "XRY/B1 medical-HUD eDEX shell over the DSH web surface: ECG/heart + radar scan-disc right bar, power-gen meters left bar, DATA TIMELINE scan-log bottom, cyan-on-near-black CRT skin",
+  "version": "0.1.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ph4310822/dsh-edex-xry-ui.git",
+    "directory": "packages/bundle"
+  },
+  "type": "module",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "files": [
+    "cordis.patch.yml"
+  ],
+  "dependencies": {
+    "@danielng23/dsh-xry-client-ui-edex": "^0.1.0",
+    "@danielng23/dsh-xry-client-ui-theme-terminal": "^0.1.0",
+    "@danielng23/dsh-xry-host-system-metrics": "^0.1.0"
+  },
+  "license": "MIT"
+}

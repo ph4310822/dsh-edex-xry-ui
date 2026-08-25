@@ -1,0 +1,34 @@
+/* ECG / HEART widget: BPM/HEART readouts + a live vital-sign waveform on a
+   dim dot grid. Bright cyan trace; the grid dots are the theme color at low
+   opacity. */
+
+.header {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin-bottom: 4px;
+}
+
+.key {
+  color: var(--edex-dim);
+  font-size: 10px;
+}
+
+.value {
+  color: var(--edex-green);
+  font-size: 12px;
+  margin-right: 6px;
+}
+
+.trace {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  color: var(--edex-green);
+}
+
+.trace svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

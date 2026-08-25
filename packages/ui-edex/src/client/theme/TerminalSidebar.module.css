@@ -1,0 +1,81 @@
+/* Terminal-style sidebar overrides: the New Session button and the
+   workspace/session tree. The slot hosts carry stable data-slot hooks
+   (data-slot="sidebar" wraps the sidebar root; data-slot="sidebar.workspaces"
+   wraps the browser), and the workspace rows expose role="tree"/"treeitem"
+   semantics — no ui-sidebar/ui-workspace changes needed. Attributes are
+   doubled so these rules win the tie against the app's own stylesheets
+   regardless of injection order. */
+
+/* The New Session button: the only direct <button> child of the sidebar
+   root (the logo/toggle buttons live inside the logo row). A flat square
+   terminal control: green border, mono glyphs. */
+:global([data-slot="sidebar"][data-slot="sidebar"] > div > button) {
+  border-radius: 0;
+  background: transparent;
+  border: 1px solid var(--edex-border);
+  color: var(--edex-green);
+  font-family: var(--edex-font);
+  letter-spacing: 1px;
+}
+
+:global([data-slot="sidebar"][data-slot="sidebar"] > div > button:hover) {
+  background: color-mix(in srgb, var(--edex-green) 8%, transparent);
+  border-color: var(--edex-green);
+}
+
+/* The workspace/session browsing region: green tree in the app's own font
+   (no mono override, so it reads like the rest of the sidebar). */
+:global([data-slot="sidebar.workspaces"][data-slot="sidebar.workspaces"]) {
+  color: var(--edex-green);
+}
+
+/* Workspace/session tree items at a compact terminal density (12px). */
+:global([data-slot="sidebar.workspaces"][data-slot="sidebar.workspaces"] [role="treeitem"]) {
+  color: var(--edex-green);
+  border-radius: 0;
+  font-size: 12px;
+}
+
+:global([data-slot="sidebar.workspaces"][data-slot="sidebar.workspaces"] [role="treeitem"]:hover) {
+  background: color-mix(in srgb, var(--edex-green) 7%, transparent);
+}
+
+/* Active item indicator (the XRY/B1 HUD's vertical green status bar): a 2px
+   bright-green accent bar on the selected treeitem's left edge, with a soft
+   glow. Mirrors the reference's vertical status indicator (#02fd8a). */
+:global([data-slot="sidebar.workspaces"][data-slot="sidebar.workspaces"] [role="treeitem"][aria-selected="true"]) {
+  position: relative;
+  background: color-mix(in srgb, var(--edex-green) 8%, transparent);
+}
+
+:global([data-slot="sidebar.workspaces"][data-slot="sidebar.workspaces"] [role="treeitem"][aria-selected="true"]::before) {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  bottom: 2px;
+  width: 2px;
+  background: #02fd8a;
+  box-shadow: 0 0 6px color-mix(in srgb, #02fd8a 55%, transparent);
+}
+
+/* The shell injects a fullscreen toggle into the header's action cluster
+   (the [class*="headerActions"] row holding view-options + add-workspace).
+   The stock cluster caps at max-width: 60px — exactly two 28px icons + gap —
+   so the third control clips past it; lift the cap when the injected button
+   is present (specificity beats the stock rule). */
+:global([data-slot="sidebar.workspaces"] [class*="headerActions"]) {
+  max-width: none;
+}
+
+/* The injected fullscreen control (EdexShell's DOM injector; footprint and
+   layout live in EdexShell.module.css): terminal-green like the New Session
+   button, with the same translucent hover wash. */
+:global([data-edex-fullscreen]) {
+  color: var(--edex-green);
+}
+
+:global([data-edex-fullscreen]:hover) {
+  background: color-mix(in srgb, var(--edex-green) 8%, transparent);
+  color: var(--edex-green);
+}

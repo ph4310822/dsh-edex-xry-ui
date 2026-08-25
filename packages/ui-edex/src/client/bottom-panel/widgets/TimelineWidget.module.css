@@ -1,0 +1,174 @@
+/* DATA TIMELINE widget: full-bleed scan-log table with the reference's
+   header frames, thin row dividers, and status colors. Mirrors the XRY/B1
+   reference's bottom DATA TIMELINE strip. */
+
+.root {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header: DATA TIMELINE + REPORTS counter (orange frames in the reference). */
+.header {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px 6px;
+  border-bottom: 1px solid var(--edex-border);
+}
+
+.title {
+  color: var(--edex-green);
+  letter-spacing: 2px;
+  font-size: 11px;
+}
+
+.reports {
+  color: var(--edex-dim);
+  font-size: 10px;
+  letter-spacing: 1px;
+  border: 1px solid var(--edex-amber);
+  border-radius: 0;
+  padding: 1px 6px;
+}
+
+/* Action strip: up / refresh buttons + inline error. */
+.actions {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+}
+
+.upButton {
+  flex: none;
+  background: none;
+  border: 1px solid var(--edex-border);
+  color: var(--edex-green);
+  font-family: inherit;
+  font-size: 11px;
+  line-height: 1;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+
+.upButton:hover {
+  background: color-mix(in srgb, var(--edex-green) 10%, transparent);
+}
+
+.error {
+  color: var(--edex-red);
+  font-size: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Row list: thin dividers between rows (reference's very thin grid). */
+.list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--edex-green) var(--edex-panel-2);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 3px 12px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--edex-border) 55%, transparent);
+  color: var(--edex-green);
+  font-family: inherit;
+  font-size: 11px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.row:hover {
+  background: color-mix(in srgb, var(--edex-green) 7%, transparent);
+}
+
+.row[data-selected] {
+  background: color-mix(in srgb, var(--edex-green) 10%, transparent);
+}
+
+.colNo {
+  flex: none;
+  width: 44px;
+  color: var(--edex-dim);
+}
+
+.colData {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.colXg {
+  flex: none;
+  width: 48px;
+  color: var(--edex-dim);
+}
+
+.colResult {
+  flex: none;
+  width: 52px;
+  text-align: right;
+  letter-spacing: 1px;
+}
+
+/* Status tones: DONE bright green, RIGHT dim, ERROR red (reference colors). */
+.done {
+  color: #02fd8a;
+}
+
+.right {
+  color: var(--edex-dim);
+}
+
+.error {
+  color: #d40202;
+}
+
+.hint {
+  padding: 10px 12px;
+  color: var(--edex-dim);
+}
+
+/* Footer: storage + menu/close glyphs. */
+.footer {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 12px;
+  border-top: 1px solid var(--edex-border);
+}
+
+.footerText {
+  color: var(--edex-dim);
+  font-size: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.footerGlyphs {
+  color: var(--edex-dim);
+  font-size: 10px;
+  letter-spacing: 4px;
+  flex: none;
+}

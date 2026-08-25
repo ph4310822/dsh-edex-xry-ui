@@ -1,0 +1,123 @@
+{
+  "metadata": {
+    "filename": "Screenshot 2026-08-24 at 21.18.41.png",
+    "slug": "xry-b1",
+    "source": "vision",
+    "width": 1882,
+    "height": 1014,
+    "analyzedAt": "2026-08-24T21:19:00.000Z"
+  },
+  "theme": {
+    "background": "#00090a",
+    "panelTone": "#021b1d",
+    "primaryAccent": "#03ffff",
+    "secondaryAccent": "#26c0c0",
+    "textPrimary": "#03ffff",
+    "textSecondary": "#8c9c9c",
+    "glowColor": "#03ffff",
+    "semanticColors": {
+      "success": "#02fd8a",
+      "warn": "#d1750f",
+      "error": "#d40202",
+      "info": "#03ffff"
+    }
+  },
+  "borderFeatures": {
+    "frame": {
+      "presence": "full",
+      "style": "solid",
+      "widthPx": 1,
+      "color": "#0f4a4d",
+      "cornerRadiusPx": 0,
+      "glow": {
+        "color": "#03ffff",
+        "blurPx": 4,
+        "intensity": "subtle"
+      },
+      "notes": "Full-screen thin cyan frame. Used on shell panels as the canvas trim. All corners square (0px radius)."
+    },
+    "cards": {
+      "presence": "full",
+      "style": "solid",
+      "widthPx": 1,
+      "color": "#106060",
+      "cornerRadiusPx": 0,
+      "glow": {
+        "color": "#03ffff",
+        "blurPx": 4,
+        "intensity": "subtle"
+      },
+      "notes": "Per-widget module frames: thin cyan outline with subtle corner bracket details (HUD tech style applied via pseudo-elements). Each widget section is an independent outlined box. Square corners (0px)."
+    },
+    "dividers": {
+      "presence": "partial",
+      "style": "solid",
+      "widthPx": 1,
+      "color": "#0d3a3d",
+      "cornerRadiusPx": 0,
+      "glow": null,
+      "notes": "Thin horizontal dividers between section blocks and between table rows. Very dark teal, no glow."
+    },
+    "inputs": {
+      "presence": "none",
+      "style": "solid",
+      "widthPx": 1,
+      "color": "#0f4a4d",
+      "cornerRadiusPx": 0,
+      "glow": null,
+      "notes": "The reference has no visible text input fields. The eDEX composer input keeps its default structure but themed with the border color."
+    },
+    "activeIndicators": {
+      "presence": "full",
+      "style": "solid",
+      "widthPx": 2,
+      "color": "#02fd8a",
+      "cornerRadiusPx": 0,
+      "glow": {
+        "color": "#02fd8a",
+        "blurPx": 6,
+        "intensity": "subtle"
+      },
+      "notes": "Vertical green active/status bar on the left edge. Color bright green #02fd8a. Applied to the sidebar active item indicator (left accent bar on selected treeitem)."
+    }
+  },
+  "layout": {
+    "regions": [
+      {"name": "topBar", "description": "Title XRY/B1 (left), ANALYSIS / DNA tag, ANALYSING ... [XXX] status, ACTIVE / XRAY JZX / 05, BLOOD CIRCULATORY SYSTEM, ACTIVE PANELS control strip, timer 00:00:08.750 (right). Y: 0-140px", "yStart": 0, "yEnd": 140},
+      {"name": "leftBar", "description": "Left column 480px wide. Top: large circular radar/scan disc with segmented outer ring, concentric rings, crosshair, tick marks, target reticle. Vertical green status bar along left edge. Bottom: 4-column stacked module blocks (energy cells), 2x2 circular knobs, POWER GEN / 252X and CODE / ZX / 01252X labels, small square control blocks. Y: 140-880px"},
+      {"name": "center", "description": "Center region 922px wide. Human body DNA scan figure (cyan skeleton + pink/purple highlights), multi-layer concentric arcs and grids, BODY DNA SCAN arc title (DNA in orange), MEDICAL ANALYSIS BODY / JZX0154 title, SPEED param 7200 (left of figure), ALTITUDE param 1199 (right of figure), bottom horizontal scale bar with time 00:00:00.083, < > nav buttons."},
+      {"name": "rightBar", "description": "Right column 480px wide. Top: ECG waveform with grid, BPM=100, HEART=112 readouts. Middle: vertical green bar, ALTIT vertical label, value blocks 9400, 8300, 8300, 8300, 9400, 0511. Bottom: curved vertical slide rail, > arrow button, angle reading 157, bottom horizontal scale. Y: 140-880px"},
+      {"name": "bottomBar", "description": "Bottom strip 134px tall. DATA TIMELINE table with columns NO. / DATA TIMELINE / DATA/XG / RESULT / REPORTS / 0215. 3 rows: 0321 JZXO125 R0215 DUFHETKST/0125 0215/RD ERROR (red); 0452 DHA0358 T2156 HOLLETKFS/0158 0215/RD RIGHT (dim); 0598 DTA0489 D1245 LUFTEKKDD/2654 0215/RD DONE (green). Orange header frames, very thin row dividers, X close icons, hamburger menu icon."}
+    ]
+  },
+  "keyElements": [
+    {"type": "radar-disc", "description": "Large circular radar/scan disc with bright cyan segmented outer ring #31F2F0, multiple inner concentric rings (dim teal to dark), crosshair through center, dense tick marks with angle numbers around rim, center target reticle (multi-ring), two side-lobe shadow regions. Subtle cyan glow around outer ring and center. Approximate center: (240, 380) in left column."},
+    {"type": "ecg-waveform", "description": "ECG/heartbeat waveform with dim grid dots, bright cyan waveform line #00F8F8, BPM=100 label, HEART=112 label. Right column top area ~(1450-1830, 180-350)."},
+    {"type": "body-scan", "description": "Human front-view skeleton/vascular scan figure. Cyan outlines for skeletal frame, pink-purple #9BA1CD / #455173 for internal organ/vascular highlights. Surrounded by multi-layer concentric arcs, radial grids, orbital rings. Arc title BODY DNA SCAN with DNA in orange."},
+    {"type": "stacked-modules", "description": "Four columns of vertical stacked short segments (like energy cells or cascade lights). First two columns bright cyan, last two dim. Each column in a thin cyan outline frame with corner details. Located left column bottom, above POWER GEN / 252X and CODE / ZX / 01252X labels. Also pairs of 2x2 circular knobs with concentric rings."},
+    {"type": "data-table", "description": "DATA TIMELINE data table spanning full bottom width. Columns: NO., DATA TIMELINE, DATA/XG, RESULT, REPORTS / 0215. Three rows of scan code records. Orange frames around header cells. ERROR in red (#d40202). RIGHT in dim teal. DONE in bright green (#02fd8a). Very thin row dividers. X close icons, + expand icon, > row arrows, hamburger menu icon."},
+    {"type": "vertical-status-bar", "description": "Thin vertical green bar (#02fd8a) at leftmost edge of left column, extends from ~y300 to ~y800. Filled segment from ~y600 to ~y800. Like a signal strength or progress indicator."}
+  ],
+  "widgets": {
+    "reference": [
+      {"name": "RADAR", "type": "radar-disc", "region": "leftTop", "description": "Circular radar scan disc with segmented ring, concentric rings, crosshair, tick marks, target reticle, sweep, glow. Signature element of the reference."},
+      {"name": "POWER GEN / CODE", "type": "stacked-modules", "region": "leftBottom", "description": "Four columns of vertical stacked segment blocks + 2x2 circular knobs + labels POWER GEN / 252X and CODE / ZX / 01252X. Like energy/status meters."},
+      {"name": "ECG / HEART", "type": "ecg-waveform", "region": "rightTop", "description": "ECG heartbeat waveform with grid, BPM=100 reading, HEART=112 reading. Live vital-sign monitor."},
+      {"name": "ALTIT / STATS", "type": "status-values", "region": "rightMiddle", "description": "Vertical green bar, ALTIT vertical text label, value blocks showing 9400, 8300, 0511, curved slide rail with tick marks, angle reading 157."},
+      {"name": "DATA TIMELINE", "type": "data-table", "region": "bottom", "description": "Full-width data table with NO. / DATA TIMELINE / DATA/XG / RESULT columns + REPORTS header. Orange header frames, scan-code rows with ERROR/RIGHT/DONE status."}
+    ],
+    "matches": [
+      {"reference": "RADAR", "slot": null, "match": null, "notes": "No existing eDEX widget counterpart. The circular radar is the signature element - chosen as featured widget to replace the WORLD VIEW globe slot."},
+      {"reference": "POWER GEN / CODE", "slot": "cpu", "match": "partial", "notes": "The stacked segment columns resemble status gauges/meters similar to the CPU widget's gauge bars. Replace CpuWidget with a reference-styled stacked meter + knobs widget using usePanel CPU data."},
+      {"reference": "ECG / HEART", "slot": "traffic", "match": "partial", "notes": "The ECG waveform is a live chart similar to the TRAFFIC widget's TX/RX charts. Replace TrafficWidget with an ECG-style waveform widget using useNetwork Tx/Rx history data as the waveform source."},
+      {"reference": "ALTIT / STATS", "slot": "network-status", "match": "partial", "notes": "The status value blocks + vertical meter resemble interface status readouts replaced by the NetworkStatusWidget."},
+      {"reference": "DATA TIMELINE", "slot": "files", "match": "partial", "notes": "The data timeline table is a list/table of rows, similar to the file browser list in the files widget. Replace FilesWidget with a timeline-styled log table using useFiles data (render file entries as timeline rows)."}
+    ],
+    "featured": {
+      "reference": "RADAR",
+      "name": "RADAR",
+      "slot": "globe",
+      "note": "The circular radar scan disc is the reference's signature element with no existing eDEX counterpart. It replaces the WORLD VIEW globe slot in the right bar. Implementation: concentric rings, outer segmented ring, crosshair, center target reticle, and a rotating sweep animation (conic-gradient wedge, 360 deg linear infinite). Glow + tick marks around the rim."
+    }
+  }
+}

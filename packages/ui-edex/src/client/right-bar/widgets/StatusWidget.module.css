@@ -1,0 +1,86 @@
+/* STATUS widget: ALTIT vertical label, value blocks, vertical green meter.
+   Mirrors the XRY/B1 reference's right-column status area. */
+
+.topRow {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+/* Vertical green meter bar (reference's thin green status indicator). */
+.meterTrack {
+  width: 4px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: var(--edex-border);
+  opacity: 0.5;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.meterFill {
+  width: 100%;
+  height: 100%;
+  background: #02fd8a;
+  box-shadow: 0 0 6px color-mix(in srgb, #02fd8a 50%, transparent);
+  border-radius: 2px;
+  transform-origin: bottom;
+  transform: scaleY(var(--meter-pct, 0.1));
+  transition: transform 0.6s ease;
+}
+
+/* ALTIT label + value (vertical text reference style). */
+.altit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 2px;
+}
+
+.altitLabel {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  color: var(--edex-dim);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.altitValue {
+  color: var(--edex-green);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Value blocks row: RX / TX / PING as reference-style blocks. */
+.blocks {
+  display: flex;
+  gap: 6px;
+}
+
+.block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  border: 1px solid var(--edex-border);
+  border-radius: 0;
+  padding: 4px 2px;
+  background: var(--edex-panel-2);
+}
+
+.blockLabel {
+  color: var(--edex-dim);
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.blockValue {
+  color: var(--edex-green);
+  font-size: 12px;
+}

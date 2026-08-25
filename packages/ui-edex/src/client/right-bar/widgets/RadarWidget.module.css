@@ -1,0 +1,170 @@
+/* RADAR featured widget: circular scan disc with rings, crosshair, sweep,
+   tick marks, and center target reticle. The disc fills the section's compact
+   area; the sweep is a conic-gradient layer rotating around the disc center. */
+
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 100%;
+  min-height: 80px;
+}
+
+.frame {
+  width: 100%;
+  max-width: 180px;
+  aspect-ratio: 1;
+  position: relative;
+}
+
+.disc {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Outer segmented ring: a square border with the cyan accent, rendered as a
+   thick dashed outer ring to simulate the reference's segmented ring. */
+.ring {
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--edex-green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px color-mix(in srgb, var(--edex-green) 40%, transparent);
+  opacity: 0.9;
+}
+
+/* Second ring: slightly inset, dimmer. */
+.ringInner {
+  position: absolute;
+  inset: 12%;
+  border: 1px solid var(--edex-green);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+/* Third ring: well inside, very dim. */
+.ringCore {
+  position: absolute;
+  inset: 30%;
+  border: 1px solid var(--edex-green);
+  border-radius: 50%;
+  opacity: 0.25;
+}
+
+/* Crosshair lines through the center. */
+.crossH,
+.crossV {
+  position: absolute;
+  background: var(--edex-green);
+  opacity: 0.6;
+}
+
+.crossH {
+  top: 50%;
+  left: 5%;
+  right: 5%;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+.crossV {
+  left: 50%;
+  top: 5%;
+  bottom: 5%;
+  width: 1px;
+  transform: translateX(-50%);
+}
+
+/* Rotating sweep: a conic-gradient wedge. The element is a full-size square,
+   so its bounding box is symmetric about the disc center — transform-origin:
+   center rotates exactly around the intended pivot. */
+.sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    color-mix(in srgb, var(--edex-green) 30%, transparent) 30deg,
+    transparent 90deg,
+    transparent 360deg
+  );
+  animation: sweep 4s linear infinite;
+  transform-origin: center;
+  pointer-events: none;
+  mask: radial-gradient(circle, transparent 45%, #000 45%);
+  -webkit-mask: radial-gradient(circle, transparent 45%, #000 45%);
+}
+
+@keyframes sweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Center target reticle: multi-ring. */
+.reticle {
+  position: absolute;
+  width: 18%;
+  height: 18%;
+  border-radius: 50%;
+  border: 1px solid var(--edex-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 6px var(--edex-green);
+  opacity: 0.8;
+}
+
+.reticleCore {
+  display: block;
+  width: 35%;
+  height: 35%;
+  border-radius: 50%;
+  background: var(--edex-green);
+  box-shadow: 0 0 4px var(--edex-green);
+}
+
+/* Tick marks around the rim: each tick sits inside a full-size square wrapper
+   (inset: 0) whose center is the disc center, so `transform-origin: center` +
+   rotate(deg) on the wrapper orbits the tick around the disc center. The
+   wrapper is a symmetric bbox, so its center is exactly the disc center. */
+.tickWrap {
+  position: absolute;
+  inset: 0;
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.tick {
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  width: 1px;
+  height: 6px;
+  margin-left: -0.5px;
+  background: var(--edex-green);
+  opacity: 0.5;
+}
+
+/* Readout line at the bottom of the widget. */
+.readout {
+  display: flex;
+  gap: 6px;
+  font-size: 10px;
+  justify-content: center;
+  letter-spacing: 1px;
+}
+
+.readoutKey {
+  color: var(--edex-dim);
+}
+
+.readoutValue {
+  color: var(--edex-green);
+}
